@@ -12,11 +12,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI creditsTMP;
     private static readonly string[] credits = new string[]
         {
-            "All assets were drawn by myself 'Strange Fungus Video Game Studios' in Aseprite.",
+            "All assets were drawn by myself 'Strange Fungus; A Solo Video Game Dev' in Aseprite.",
             "This is my first full video game I've ever made!",
             "I used Googles AI to ask questions about the Shader Graph and how to use it properly.\n It was a lot of fun starting to learn about that!",
             "I used Googles AI to come up with some simple ideas for a game I could make.",
-            "Full code files can be found on GitHub at: ",
+            "Full code files can be found on GitHub at:\n https://github.com/StrangeFungus/LuckyShift",
             "No AI was used to generate code files.",
         };
 
@@ -72,5 +72,10 @@ public class MainMenuController : MonoBehaviour
     public void OpenSaveFileLocation()
     {
         SaveLoadManager.OpenSavedGameFileLocation();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

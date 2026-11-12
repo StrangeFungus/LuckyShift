@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
     private Coroutine bonusBuffCoroutine;
     private float bonusBuffDuration = 5f;
     [SerializeField] private TextMeshProUGUI bonusPointsUITextPrefab;
+    [SerializeField] private GameObject bonusPointsParticlesPrefab;
+
     [SerializeField] private GameObject lifeProtectionBuffIcon;
     private bool isLifeProtectionActive = false;
 
@@ -115,8 +117,6 @@ public class GameManager : MonoBehaviour
         {
             BadGuess();
         }
-
-        UpdateScores();
     }
 
     public void GuessHigher()
@@ -129,8 +129,6 @@ public class GameManager : MonoBehaviour
         {
             BadGuess();
         }
-
-        UpdateScores();
     }
 
     private void GoodGuess()
@@ -141,17 +139,18 @@ public class GameManager : MonoBehaviour
 
         if (nextNumber == playersCurrentLuckyNumber)
         {
-            // Give 2 bonus points for correct activation.
-            currentScore += 2;
+            // Give 3 bonus points for correct activation.
+            currentScore += 3;
+            Instantiate(bonusPointsParticlesPrefab, canvasParent.transform);
 
             // Activate the bonus points splash text and particles.
             GameObject newBonusText = Instantiate(bonusPointsUITextPrefab.gameObject, canvasParent.transform);
             if (newBonusText.TryGetComponent<TextMeshProUGUI>(out var textMeshProUGUI))
             {
-                textMeshProUGUI.SetText($"Bonus Points! +2");
+                textMeshProUGUI.SetText($"Bonus Points! +3");
             }
 
-            // Activate a short buff that gives bonus points (1 instead of the 2 above) for each correct guess.
+            // Activate a short buff that gives bonus points (1 instead of the 3 above) for each correct guess.
             isBonusBuffActive = true;
             bonusBuffDuration = 5f;
             bonusBuffIcon.SetActive(true);
@@ -160,12 +159,14 @@ public class GameManager : MonoBehaviour
             // Buff protects a life lost until the end of the buff.
             isLifeProtectionActive = true;
             lifeProtectionBuffIcon.SetActive(true);
+            return;
         }
 
         if (isBonusBuffActive)
         {
             // Give 1 bonus points for correct activation.
             currentScore += 1;
+            Instantiate(bonusPointsParticlesPrefab, canvasParent.transform);
 
             // Activate the bonus points splash text and particles.
             GameObject newBonusText = Instantiate(bonusPointsUITextPrefab.gameObject, canvasParent.transform);
@@ -174,6 +175,8 @@ public class GameManager : MonoBehaviour
                 textMeshProUGUI.SetText($"Bonus Points! +1");
             }
         }
+
+        UpdateScores();
     }
 
     private IEnumerator BonusBuffCoroutine()
@@ -235,8 +238,9 @@ public class GameManager : MonoBehaviour
         if (currentScore > highScoreToCompare)
         {
             SaveLoadManager.SetNewHighScore(currentScore, DifficultySettings.difficulty);
-            highScoreTMP.SetText($"{highScoreToCompare}");
         }
+
+        highScoreTMP.SetText($"{highScoreToCompare}");
     }
 
     private void StartNextRound()

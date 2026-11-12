@@ -9,43 +9,48 @@ public class GameOverScreenController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI gameOverText;
 
-    [SerializeField] private Image restartGameButtonImage;
+    [SerializeField] private Button restartGameButton;
     [SerializeField] private TextMeshProUGUI restartGameButtonText;
 
-    [SerializeField] private Image easyDifficultyButtonImage;
+    [SerializeField] private Button easyDifficultyButton;
     [SerializeField] private TextMeshProUGUI easyDifficultyButtonText;
 
-    [SerializeField] private Image mediumDifficultyButtonImage;
+    [SerializeField] private Button mediumDifficultyButton;
     [SerializeField] private TextMeshProUGUI mediumDifficultyButtonText;
 
-    [SerializeField] private Image hardDifficultyButtonImage;
+    [SerializeField] private Button hardDifficultyButton;
     [SerializeField] private TextMeshProUGUI hardDifficultyButtonText;
 
-    [SerializeField] private Image mainMenuButtonImage;
+    [SerializeField] private Button mainMenuButton;
     [SerializeField] private TextMeshProUGUI mainMenuButtonText;
 
     private void Start()
     {
         SetUIAlpha(0f);
+        restartGameButton.interactable = false;
+        easyDifficultyButton.interactable = false;
+        mediumDifficultyButton.interactable = false;
+        hardDifficultyButton.interactable = false;
+        mainMenuButton.interactable = false;
     }
 
     public void ActivateGameOverScreen()
     {
         SetUIAlpha(0f);
 
-        easyDifficultyButtonImage.gameObject.SetActive(true);
-        mediumDifficultyButtonImage.gameObject.SetActive(true);
-        hardDifficultyButtonImage.gameObject.SetActive(true);
+        easyDifficultyButton.gameObject.SetActive(true);
+        mediumDifficultyButton.gameObject.SetActive(true);
+        hardDifficultyButton.gameObject.SetActive(true);
         switch (DifficultySettings.difficulty)
         {
             case 0:
-                easyDifficultyButtonImage.gameObject.SetActive(false);
+                easyDifficultyButton.gameObject.SetActive(false);
                 break;
             case 1:
-                mediumDifficultyButtonImage.gameObject.SetActive(false);
+                mediumDifficultyButton.gameObject.SetActive(false);
                 break;
             case 2:
-                hardDifficultyButtonImage.gameObject.SetActive(false);
+                hardDifficultyButton.gameObject.SetActive(false);
                 break;
         }
 
@@ -62,6 +67,8 @@ public class GameOverScreenController : MonoBehaviour
 
     private IEnumerator FadeInGameOverUI()
     {
+        yield return new WaitForSeconds(5f);
+
         // FADE IN
         float totalDuration = 0.25f;
         float elapsedTime = 0f;
@@ -72,6 +79,12 @@ public class GameOverScreenController : MonoBehaviour
             SetUIAlpha(alpha);
             yield return null;
         }
+
+        restartGameButton.interactable = true;
+        easyDifficultyButton.interactable = true;
+        mediumDifficultyButton.interactable = true;
+        hardDifficultyButton.interactable = true;
+        mainMenuButton.interactable = true;
     }
 
     private void SetUIAlpha(float alphaValue) // MUST BE 0 to 1
@@ -79,15 +92,15 @@ public class GameOverScreenController : MonoBehaviour
         Color colorWithAlpha = new Color(1f, 1f, 1f, alphaValue);
         gameOverScreenImage.color = colorWithAlpha;
         gameOverText.color = colorWithAlpha;
-        restartGameButtonImage.color = colorWithAlpha;
+        restartGameButton.image.color = colorWithAlpha;
         restartGameButtonText.color = colorWithAlpha;
-        easyDifficultyButtonImage.color = colorWithAlpha;
+        easyDifficultyButton.image.color = colorWithAlpha;
         easyDifficultyButtonText.color = colorWithAlpha;
-        mediumDifficultyButtonImage.color = colorWithAlpha;
+        mediumDifficultyButton.image.color = colorWithAlpha;
         mediumDifficultyButtonText.color = colorWithAlpha;
-        hardDifficultyButtonImage.color = colorWithAlpha;
+        hardDifficultyButton.image.color = colorWithAlpha;
         hardDifficultyButtonText.color = colorWithAlpha;
-        mainMenuButtonImage.color = colorWithAlpha;
+        mainMenuButton.image.color = colorWithAlpha;
         mainMenuButtonText.color = colorWithAlpha;
     }
 }

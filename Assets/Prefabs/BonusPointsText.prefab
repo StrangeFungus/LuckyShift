@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 842180612039250538}
   - component: {fileID: 6405785834063817111}
   - component: {fileID: 5843308811808342893}
+  - component: {fileID: -7356140986759216203}
   m_Layer: 5
   m_Name: BonusPointsText
   m_TagString: Untagged
@@ -137,3 +138,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &-7356140986759216203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703829312920650686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16daf1839a56ab14a9d3706bd543759c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatUpAndVanish
+  textMeshProUGUI: {fileID: 5843308811808342893}

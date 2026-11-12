@@ -259,9 +259,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.94117653, b: 0, a: 1}
-    m_PressedColor: {r: 1, g: 0.94117653, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.94117653, b: 0, a: 1}
-    m_DisabledColor: {r: 1, g: 0.94117653, b: 0, a: 0.5019608}
+    m_PressedColor: {r: 0, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.24722794, b: 0, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 0, a: 0.5019608}
@@ -1796,6 +1796,7 @@ MonoBehaviour:
   gameOverScreenController: {fileID: 1964750050}
   bonusBuffIcon: {fileID: 1004809932}
   bonusPointsUITextPrefab: {fileID: 5843308811808342893, guid: 14245dd4057fcd04baab8a997cb46074, type: 3}
+  bonusPointsParticlesPrefab: {fileID: 3114572676264228153, guid: eb9c73ccba045c4429abb1d94d3fda04, type: 3}
   lifeProtectionBuffIcon: {fileID: 136048618}
 --- !u!4 &452827933
 Transform:
@@ -2147,7 +2148,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.90171766, a: 1}
     m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.5019608}
@@ -7524,8 +7525,8 @@ Canvas:
   m_GameObject: {fileID: 918364235}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -7555,9 +7556,9 @@ RectTransform:
   - {fileID: 17894270}
   - {fileID: 1518150407}
   - {fileID: 775861854}
-  - {fileID: 1964750046}
   - {fileID: 1663412445}
   - {fileID: 1635933839}
+  - {fileID: 1964750046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8182,8 +8183,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4294901982
+  m_fontColor: {r: 0.8689933, g: 0, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
   m_fontColorGradient:
@@ -8451,7 +8452,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -8721,7 +8722,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 1, b: 0, a: 1}
-    m_HighlightedColor: {r: 0, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0.8575926, a: 1}
     m_PressedColor: {r: 0, g: 1, b: 0, a: 1}
     m_SelectedColor: {r: 0, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0, g: 1, b: 0, a: 0.5019608}
@@ -8957,7 +8958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8966,7 +8967,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0.827055, a: 1}
     m_PressedColor: {r: 0, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0, g: 1, b: 1, a: 0.5019608}
@@ -9156,14 +9157,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9279,11 +9280,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 1, b: 0.5019608, a: 1}
+    m_NormalColor: {r: 0.52156866, g: 0, b: 0.89019614, a: 1}
     m_HighlightedColor: {r: 0, g: 1, b: 0.5019608, a: 1}
-    m_PressedColor: {r: 0, g: 1, b: 0.5019608, a: 1}
-    m_SelectedColor: {r: 0, g: 1, b: 0.5019608, a: 1}
-    m_DisabledColor: {r: 0, g: 1, b: 0.5019608, a: 0.5019608}
+    m_PressedColor: {r: 0.52156866, g: 0, b: 0.89019614, a: 1}
+    m_SelectedColor: {r: 0.52156866, g: 0, b: 0.89019614, a: 1}
+    m_DisabledColor: {r: 0.52156866, g: 0, b: 0.89019614, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -9503,7 +9504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -9512,7 +9513,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.9989555, g: 1, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 0, a: 0.5019608}
@@ -9784,7 +9785,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.654902, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.654902, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.10151136, g: 1, b: 0, a: 1}
     m_PressedColor: {r: 1, g: 0.654902, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 0.654902, b: 0, a: 1}
     m_DisabledColor: {r: 1, g: 0.654902, b: 0, a: 0.5019608}
@@ -9962,15 +9963,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverScreenController
   gameOverScreenImage: {fileID: 1964750047}
   gameOverText: {fileID: 267775429}
-  restartGameButtonImage: {fileID: 38433041}
+  restartGameButton: {fileID: 38433040}
   restartGameButtonText: {fileID: 655257095}
-  easyDifficultyButtonImage: {fileID: 1395995712}
+  easyDifficultyButton: {fileID: 1395995711}
   easyDifficultyButtonText: {fileID: 310638125}
-  mediumDifficultyButtonImage: {fileID: 179698323}
+  mediumDifficultyButton: {fileID: 179698322}
   mediumDifficultyButtonText: {fileID: 2096170963}
-  hardDifficultyButtonImage: {fileID: 546058084}
+  hardDifficultyButton: {fileID: 546058083}
   hardDifficultyButtonText: {fileID: 506512352}
-  mainMenuButtonImage: {fileID: 1131853986}
+  mainMenuButton: {fileID: 1131853985}
   mainMenuButtonText: {fileID: 1061973422}
 --- !u!1 &2037699933
 GameObject:
