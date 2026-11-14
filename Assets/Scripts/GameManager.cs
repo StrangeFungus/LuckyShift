@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     // GAME OVER
     public static bool GameOver = false;
     [SerializeField] private GameOverScreenController gameOverScreenController;
+    private BackgroundMusicManager.MusicPlaylistIndex previousMusicIndex = BackgroundMusicManager.MusicPlaylistIndex.MainMenu;
 
     // BONUS POINTS AND BUFF
     [SerializeField] private GameObject bonusBuffIcon;
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        RestartGame();
+        ResetGameData();
     }
 
     private void Update()
@@ -225,6 +226,7 @@ public class GameManager : MonoBehaviour
             higherButton.interactable = false;
             toggleExitToMainMenuOptionButton.interactable = false;
             gameOverScreenController.ActivateGameOverScreen();
+            BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.GameOverScreen);
             return;
         }
 
@@ -255,6 +257,12 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        BackgroundMusicManager.Instance.StartNewPlaylist(previousMusicIndex);
+        ResetGameData();
+    }
+
+    public void ResetGameData()
+    {
         DifficultySettings.GetDifficultyValues(ref livesRemaining, ref timerDefault, ref timeLostPerFail, ref maximumQuestionValue);
         PickNewLuckyNumber();
         livesRemainingTMP.SetText($"Lives: {livesRemaining}");
@@ -277,23 +285,31 @@ public class GameManager : MonoBehaviour
     public void ChangeToEasyDifficulty()
     {
         DifficultySettings.difficulty = 0;
-        RestartGame();
+        previousMusicIndex = BackgroundMusicManager.MusicPlaylistIndex.EasyDifficulty;
+        BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.EasyDifficulty);
+        ResetGameData();
     }
 
     public void ChangeToMediumDifficulty()
     {
         DifficultySettings.difficulty = 1;
-        RestartGame();
+        previousMusicIndex = BackgroundMusicManager.MusicPlaylistIndex.MediumDifficulty;
+        BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.MediumDifficulty);
+        ResetGameData();
     }
 
     public void ChangeToHardDifficulty()
     {
         DifficultySettings.difficulty = 2;
-        RestartGame();
+        previousMusicIndex = BackgroundMusicManager.MusicPlaylistIndex.HardDifficulty;
+        BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.HardDifficulty);
+        ResetGameData();
     }
 
     public void ReturnToMainMenu()
     {
+        previousMusicIndex = BackgroundMusicManager.MusicPlaylistIndex.MainMenu;
+        BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.MainMenu);
         SceneManager.LoadScene(0);
     }
 }

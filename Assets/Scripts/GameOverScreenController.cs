@@ -36,8 +36,6 @@ public class GameOverScreenController : MonoBehaviour
 
     public void ActivateGameOverScreen()
     {
-        SetUIAlpha(0f);
-
         easyDifficultyButton.gameObject.SetActive(true);
         mediumDifficultyButton.gameObject.SetActive(true);
         hardDifficultyButton.gameObject.SetActive(true);
@@ -61,16 +59,23 @@ public class GameOverScreenController : MonoBehaviour
 
     public void DeactivateGameOverScreen()
     {
-        gameObject.SetActive(false);
         SetUIAlpha(0f);
+
+        restartGameButton.interactable = false;
+        easyDifficultyButton.interactable = false;
+        mediumDifficultyButton.interactable = false;
+        hardDifficultyButton.interactable = false;
+        mainMenuButton.interactable = false;
+
+        gameObject.SetActive(false);
     }
 
     private IEnumerator FadeInGameOverUI()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.5f);
 
         // FADE IN
-        float totalDuration = 0.25f;
+        float totalDuration = 0.5f;
         float elapsedTime = 0f;
         while (elapsedTime < 1f)
         {

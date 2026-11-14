@@ -18,6 +18,9 @@ public class MainMenuController : MonoBehaviour
             "I used Googles AI to come up with some simple ideas for a game I could make.",
             "Full code files can be found on GitHub at:\n https://github.com/StrangeFungus/LuckyShift",
             "No AI was used to generate code files.",
+            "Rachel R. helped test play the game!",
+            "Music is provided by:\n'Music Loops Mini Set by Andrew Sitkov Music from the Unity Asset Store'",
+            "Sound Effects are provided by:\n'\r\nHints Stars Points & Rewards Sound Effects - Lite Pack by Cyberwave Orchestra from the Unity Asset Store'"
         };
 
     private void OnEnable()
@@ -31,6 +34,11 @@ public class MainMenuController : MonoBehaviour
         mediumDifficultyHighScoreValueTMP.SetText($"{mediumDifficultyHighScore}");
         hardDifficultyHighScoreValueTMP.SetText($"{hardDifficultyHighScore}");
         StartCoroutine(CycleThroughCredits());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     private IEnumerator CycleThroughCredits()
@@ -54,18 +62,21 @@ public class MainMenuController : MonoBehaviour
     public void StartEasyMode()
     {
         DifficultySettings.difficulty = 0;
+        BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.EasyDifficulty);
         SceneManager.LoadScene(1);
     }
 
     public void StartMediumMode()
     {
         DifficultySettings.difficulty = 1;
+        BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.MediumDifficulty);
         SceneManager.LoadScene(1);
     }
 
     public void StartHardMode()
     {
         DifficultySettings.difficulty = 2;
+        BackgroundMusicManager.Instance.StartNewPlaylist(BackgroundMusicManager.MusicPlaylistIndex.HardDifficulty);
         SceneManager.LoadScene(1);
     }
 
